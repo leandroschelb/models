@@ -17,7 +17,7 @@
 
 import numpy as np
 import tensorflow as tf
-from tensorflow.contrib.slim import queues
+from tf_slim import queues
 
 import datasets
 import data_provider

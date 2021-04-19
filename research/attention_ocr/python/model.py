@@ -27,8 +27,8 @@ import collections
 import logging
 import numpy as np
 import tensorflow as tf
-from tensorflow.contrib import slim
-from tensorflow.contrib.slim.nets import inception
+import tf_slim as slim
+from tf_slim.nets import inception
 
 import metrics
 import sequence_layers

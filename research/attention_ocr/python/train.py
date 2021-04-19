@@ -21,7 +21,7 @@ python train.py
 import collections
 import logging
 import tensorflow as tf
-from tensorflow.contrib import slim
+import tf_slim as slim
 from tensorflow import app
 from tensorflow.compat.v1 import flags
 from tensorflow.contrib.tfprof import model_analyzer
