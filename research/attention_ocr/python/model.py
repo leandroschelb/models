@@ -82,9 +82,10 @@ class CharsetMapper(object):
     Args:
       charset: a dictionary with id-to-character mapping.
     """
-    mapping_strings = tf.constant(_dict_to_array(charset, default_character))
-    self.table = tf.contrib.lookup.index_to_string_table_from_tensor(
-        mapping=mapping_strings, default_value=default_character)
+    keys_tensor = tf.constant(list(charset.keys()), dtype="int64")
+    vals_tensor = tf.constant(list(charset.values()))
+    init = tf.lookup.KeyValueTensorInitializer(keys_tensor, vals_tensor)
+    self.table = tf.lookup.StaticHashTable(init, default_value=default_character)
 
   def get_text(self, ids):
     """Returns a string corresponding to a sequence of character ids.
